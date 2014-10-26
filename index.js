@@ -95,7 +95,7 @@ UserGridLevelDOWN.prototype._put = function(key, value, options, callback) {
   key = '_' + key;
   
   if(this.opts.cache) {
-    this.cache[key] = value;
+    this._cache[key] = value;
   }
 
   updateOrCreate(this.client, key, value, this.opts.type, function(err) {
@@ -113,7 +113,7 @@ UserGridLevelDOWN.prototype._get = function(key, options, callback) {
 
 
   if(this.opts.cache) {
-    var val = this.cache[key];
+    var val = this._cache[key];
     if(!val) {
       search(this.client, key, this.opts.type, function(err, value) {
         if(err) {
@@ -126,6 +126,8 @@ UserGridLevelDOWN.prototype._get = function(key, options, callback) {
           }
         }
       });
+    } else {
+      callback(null, val);
     }
   } else {
     search(this.client, key, this.opts.type, function(err, value) {
@@ -146,7 +148,7 @@ UserGridLevelDOWN.prototype._get = function(key, options, callback) {
 UserGridLevelDOWN.prototype._del = function(key, options, callback) {
   key = '_' + key;
   if(this.opts.cache) {
-    delete this.cache[key];
+    delete this._cache[key];
   }
 
   del(this.client, key, this.opts.type, function(err) {

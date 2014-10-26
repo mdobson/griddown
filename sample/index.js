@@ -2,7 +2,7 @@ var levelup = require('levelup');
 var griddown = require('../');
 
 var dbopts = {
-  cache: false,
+  cache: true,
   app: 'sandbox',
   org: 'mdobson',
   type: 'levels'
