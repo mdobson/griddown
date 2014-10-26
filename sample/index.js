@@ -12,7 +12,7 @@ var db = levelup('/who/cares', {
   db: function (location) { return new griddown(location, dbopts); }
 });
 
-db.put('foo', 'bar3', function(err) {
+db.put('foo', 'bar2', function(err) {
   if(err) throw err;
 
   db.get('foo', function(err, value) {

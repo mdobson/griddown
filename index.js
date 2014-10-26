@@ -41,7 +41,6 @@ var updateOrCreate = function(client, key, value, type, cb) {
       cb(err);
     } else {
       var entity = collection.getFirstEntity();
-      console.log(entity);
       if(entity) {
         entity.set('key', key);
         entity.set('value', value);
