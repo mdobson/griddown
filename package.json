@@ -1,0 +1,22 @@
+{
+  "name": "griddown",
+  "version": "0.1.0",
+  "description": "A leveldown compatible interface for UserGrid the open source API BaaS",
+  "main": "index.js",
+  "dependencies": {
+    "abstract-leveldown": "~2.0.3",
+    "usergrid": "~0.10.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "levelup",
+    "leveldown",
+    "usergrid",
+    "leveldb"
+  ],
+  "author": "Matthew S Dobson",
+  "license": "MIT"
+}
