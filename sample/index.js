@@ -9,7 +9,11 @@ var dbopts = {
 };
 
 var db = levelup('/who/cares', {
-  db: function (location) { return new griddown(location, dbopts); }
+  db: function(location) { return new griddown(location); },
+  cache: true,
+  app:'sandbox',
+  org: 'mdobson',
+  type: 'levels'
 });
 
 db.put('foo', 'bar2', function(err) {

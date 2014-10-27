@@ -70,15 +70,15 @@ var updateOrCreate = function(client, key, value, type, cb) {
   });
 }
 
-var UserGridLevelDOWN = module.exports = function(location, opts) {
+var UserGridLevelDOWN = module.exports = function(location) {
   AbstractLevelDOWN.call(this, location);
-  this.opts = opts || {};
   this.client = null;
   this.collection = null;
 };
 util.inherits(UserGridLevelDOWN, AbstractLevelDOWN);
 
 UserGridLevelDOWN.prototype._open = function(options, callback) {
+  this.opts = options || {};
   this.client = new usergrid.client({
     orgName: this.opts.org,
     appName: this.opts.app
